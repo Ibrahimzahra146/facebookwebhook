@@ -7,33 +7,22 @@ const uuid = require('node-uuid');
 const request = require('request');
 const JSONbig = require('json-bigint');
 const async = require('async');
-
-const REST_PORT =  5000;
-
-const APIAI_LANG =  'en';
-
+const REST_PORT = 5000;
+const APIAI_LANG = 'en';
 const sessionIds = new Map();
 
 function processEvent(event) {
     console.log("hi");
-   
+
 }
-
-
-
-
 function doSubscribeRequest() {
-  console.log("hi");
+    console.log("hi");
 }
-
-
 
 const app = express();
-
-app.use(bodyParser.text({type: 'application/json'}));
-
+app.use(bodyParser.text({ type: 'application/json' }));
 app.get('/webhook/', (req, res) => {
-    if (""=="") {
+    if ("" == "") {
         res.send("");
 
         setTimeout(() => {
@@ -46,10 +35,7 @@ app.get('/webhook/', (req, res) => {
 
 app.post('/webhook/', (req, res) => {
     try {
-processEvent("ibrahim")
-
-
-
+        processEvent("ibrahim");
         return res.status(200).json({
             status: "ok"
         });
@@ -61,7 +47,6 @@ processEvent("ibrahim")
     }
 
 });
-
 app.listen(REST_PORT, () => {
     console.log('Rest service ready on port ' + REST_PORT);
 });
